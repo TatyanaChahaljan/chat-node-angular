@@ -1,0 +1,21 @@
+<form [formGroup]="promptForm" (ngSubmit)="submit()">
+    <mat-dialog-content>
+        <mat-form-field>
+            <input placeholder="What's your name?"
+                   type="text"
+                   id="name"
+                   formControlName="name"
+                   matInput
+                   value="">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+        <button type="submit" [disabled]="promptForm.invalid" mat-raised-button [mat-dialog-close]="name"
+                cdkFocusInitial>Ok
+        </button>
+    </mat-dialog-actions>
+</form>
+
+
+

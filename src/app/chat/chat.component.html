@@ -1,0 +1,45 @@
+<h2> Chat box </h2>
+
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+    <form [formGroup]="messageForm">
+        <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="start center">
+            <mat-form-field>
+                <input placeholder="Type message"
+                       id="message"
+                       formControlName="message"
+                       name="message"
+                       matInput
+                       value=""
+                       type="text">
+            </mat-form-field>
+            <button type="submit"
+                    [disabled]="messageForm.invalid"
+                    (click)="sendMessage()"
+                    mat-raised-button>Send message
+            </button>
+        </div>
+    </form>
+</div>
+
+<div fxLayout="row" fxLayoutGap="40px">
+    <mat-list role="list" *ngIf="connects">
+        <mat-list-item *ngFor="let connect of connects">
+            <ng-container *ngIf="connect.type === 'new-user'; else elseBlock">
+                <i> {{connect.name}}
+                    <small>join the chat..</small>
+                </i>
+            </ng-container>
+            <ng-template #elseBlock>
+                <i style="color: red"> {{connect.name}}
+                    <small>live the chat..</small>
+                </i>
+            </ng-template>
+        </mat-list-item>
+    </mat-list>
+    <mat-list role="list" *ngIf="messages">
+        <mat-list-item *ngFor="let message of messages">
+            <small>Time: {{message.time}}, user: {{message.user}}:</small> &nbsp;
+            <span [ngStyle]="{'color': message.color}"> {{message.message}} </span>
+        </mat-list-item>
+    </mat-list>
+</div>
