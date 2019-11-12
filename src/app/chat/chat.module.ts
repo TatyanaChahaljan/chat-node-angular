@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { ChatComponent } from './chat.component';
-import { ChatService } from '../services/chat.service';
-import { MaterialModule } from '../material/material.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexModule } from '@angular/flex-layout';
+
+import { ChatComponent } from './chat.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
     ChatComponent
   ],
-  providers: [ChatService],
+  providers: [],
   exports: [ChatComponent],
   imports: [
     MaterialModule,

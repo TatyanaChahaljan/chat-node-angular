@@ -1,8 +1,11 @@
 import { Observable } from 'rxjs';
 import * as io from 'socket.io-client';
+import { Injectable } from '@angular/core';
+
 import { environment } from '../../environments/environment';
 import { constants } from '../../constants';
 
+@Injectable({providedIn: 'root'})
 export class ChatService {
   private url = environment.url;
   private socket: any;
@@ -28,7 +31,6 @@ export class ChatService {
     );
   }
 
-
   getMessages() {
     return new Observable(observer => {
       this.socket.on(constants.NEW_MESSAGE, (data) => {
@@ -50,6 +52,4 @@ export class ChatService {
       };
     });
   }
-
-
 }

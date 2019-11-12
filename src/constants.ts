@@ -1,5 +1,4 @@
 export const constants = {
-  CONNECT: 'connection',
   DISCONNECT: 'disconnect',
   USER_CONNECT: 'user-connect',
   ADD_MESSAGE: 'add-message',

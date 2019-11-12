@@ -41,7 +41,7 @@ module.exports = "<div class=\"wrapper\">\n    <app-chat-component></app-chat-co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2> Chat box </h2>\n\n<div fxLayout=\"column\" fxLayoutAlign=\"space-between stretch\">\n    <form [formGroup]=\"messageForm\">\n        <div fxLayout=\"row\" fxLayoutGap=\"40px\" fxLayoutAlign=\"start center\">\n            <mat-form-field>\n                <input placeholder=\"Type message\"\n                       id=\"message\"\n                       formControlName=\"message\"\n                       name=\"message\"\n                       matInput\n                       value=\"\"\n                       type=\"text\">\n            </mat-form-field>\n            <button type=\"submit\"\n                    [disabled]=\"messageForm.invalid\"\n                    (click)=\"sendMessage()\"\n                    mat-raised-button>Send message\n            </button>\n        </div>\n    </form>\n</div>\n\n<div fxLayout=\"row\" fxLayoutGap=\"40px\">\n    <mat-list role=\"list\" *ngIf=\"connects\">\n        <mat-list-item *ngFor=\"let connect of connects\">\n            <ng-container *ngIf=\"connect.type === 'new-user'; else elseBlock\">\n                <i> {{connect.name}}\n                    <small>join the chat..</small>\n                </i>\n            </ng-container>\n            <ng-template #elseBlock>\n                <i style=\"color: red\"> {{connect.name}}\n                    <small>live the chat..</small>\n                </i>\n            </ng-template>\n        </mat-list-item>\n    </mat-list>\n    <mat-list role=\"list\" *ngIf=\"messages\">\n        <mat-list-item *ngFor=\"let message of messages\">\n            <small>Time: {{message.time}}, user: {{message.user}}:</small> &nbsp;\n            <span [ngStyle]=\"{'color': message.color}\"> {{message.message}} </span>\n        </mat-list-item>\n    </mat-list>\n</div>\n"
+module.exports = "<h2> Chat box </h2>\n\n<div fxLayout=\"column\" fxLayoutAlign=\"space-between stretch\">\n    <form [formGroup]=\"messageForm\">\n        <div fxLayout=\"row\" fxLayoutGap=\"40px\" fxLayoutAlign=\"start center\">\n            <mat-form-field>\n                <input placeholder=\"Type message\"\n                       id=\"message\"\n                       formControlName=\"message\"\n                       name=\"message\"\n                       matInput\n                       value=\"\"\n                       type=\"text\">\n            </mat-form-field>\n            <button type=\"submit\"\n                    [disabled]=\"messageForm.invalid\"\n                    (click)=\"sendMessage()\"\n                    mat-raised-button>Send message\n            </button>\n        </div>\n    </form>\n</div>\n\n<div fxLayout=\"row\" fxLayoutGap=\"40px\">\n    <mat-list role=\"list\" *ngIf=\"connects\">\n        <mat-list-item *ngFor=\"let connect of connects\">\n            <ng-container *ngIf=\"connect.type === 'new-user'; else elseBlock\">\n                <i> {{connect.name}}\n                    <small>join the chat..</small>\n                </i>\n            </ng-container>\n            <ng-template #elseBlock>\n                <i style=\"color: red\"> {{connect.name}}\n                    <small>left the chat..</small>\n                </i>\n            </ng-template>\n        </mat-list-item>\n    </mat-list>\n    <mat-list role=\"list\" *ngIf=\"messages\">\n        <mat-list-item *ngFor=\"let message of messages\">\n            <small>Time: {{message.time}}, user: {{message.user}}:</small> &nbsp;\n            <span [ngStyle]=\"{'color': message.color}\"> {{message.message}} </span>\n        </mat-list-item>\n    </mat-list>\n</div>\n"
 
 /***/ }),
 
@@ -53,17 +53,6 @@ module.exports = "<h2> Chat box </h2>\n\n<div fxLayout=\"column\" fxLayoutAlign=
 /***/ (function(module, exports) {
 
 module.exports = "<form [formGroup]=\"promptForm\" (ngSubmit)=\"submit()\">\n    <mat-dialog-content>\n        <mat-form-field>\n            <input placeholder=\"What's your name?\"\n                   type=\"text\"\n                   id=\"name\"\n                   formControlName=\"name\"\n                   matInput\n                   value=\"\">\n        </mat-form-field>\n    </mat-dialog-content>\n    <mat-dialog-actions align=\"center\">\n        <button mat-raised-button (click)=\"onNoClick()\">No Thanks</button>\n        <button type=\"submit\" [disabled]=\"promptForm.invalid\" mat-raised-button [mat-dialog-close]=\"name\"\n                cdkFocusInitial>Ok\n        </button>\n    </mat-dialog-actions>\n</form>\n\n\n\n"
-
-/***/ }),
-
-/***/ "./src/app/app.component.scss":
-/*!************************************!*\
-  !*** ./src/app/app.component.scss ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"
 
 /***/ }),
 
@@ -88,7 +77,6 @@ var AppComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app.component.html"),
-            styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         })
     ], AppComponent);
     return AppComponent;
@@ -143,17 +131,6 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/chat/chat.component.scss":
-/*!******************************************!*\
-  !*** ./src/app/chat/chat.component.scss ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYXQvY2hhdC5jb21wb25lbnQuc2NzcyJ9 */"
-
-/***/ }),
-
 /***/ "./src/app/chat/chat.component.ts":
 /*!****************************************!*\
   !*** ./src/app/chat/chat.component.ts ***!
@@ -166,10 +143,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatComponent", function() { return ChatComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/chat.service */ "./src/app/services/chat.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _dialog_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../dialog/prompt-dialog.component */ "./src/app/dialog/prompt-dialog.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/chat.service */ "./src/app/services/chat.service.ts");
+/* harmony import */ var _dialog_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dialog/prompt-dialog.component */ "./src/app/dialog/prompt-dialog.component.ts");
 
 
 
@@ -186,7 +163,7 @@ var ChatComponent = /** @class */ (function () {
         this.subscriptions = [];
         this.color = "#" + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
         this.messageForm = this.fb.group({
-            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]],
+            message: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
         });
     }
     ChatComponent.prototype.sendMessage = function () {
@@ -219,11 +196,10 @@ var ChatComponent = /** @class */ (function () {
     };
     ChatComponent.prototype.showModal = function () {
         var _this = this;
-        var dialogRef = this.dialog.open(_dialog_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_4__["PromptDialogComponent"], {
+        var dialogRef = this.dialog.open(_dialog_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_5__["PromptDialogComponent"], {
             width: '400px',
         });
         dialogRef.afterClosed().subscribe(function (data) {
-            console.log(data);
             _this.userName = data || 'guest';
             _this.chatService.userConnect(_this.userName);
         });
@@ -232,15 +208,14 @@ var ChatComponent = /** @class */ (function () {
         this.subscriptions.forEach(function (sub) { return sub.unsubscribe(); });
     };
     ChatComponent.ctorParameters = function () { return [
-        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_2__["ChatService"] },
+        { type: _services_chat_service__WEBPACK_IMPORTED_MODULE_4__["ChatService"] },
         { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
     ]; };
     ChatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-chat-component',
             template: __webpack_require__(/*! raw-loader!./chat.component.html */ "./node_modules/raw-loader/index.js!./src/app/chat/chat.component.html"),
-            styles: [__webpack_require__(/*! ./chat.component.scss */ "./src/app/chat/chat.component.scss")]
         })
     ], ChatComponent);
     return ChatComponent;
@@ -262,13 +237,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatModule", function() { return ChatModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _chat_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chat.component */ "./src/app/chat/chat.component.ts");
-/* harmony import */ var _services_chat_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/chat.service */ "./src/app/services/chat.service.ts");
-/* harmony import */ var _material_material_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../material/material.module */ "./src/app/material/material.module.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
-
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _chat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./chat.component */ "./src/app/chat/chat.component.ts");
+/* harmony import */ var _material_material_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../material/material.module */ "./src/app/material/material.module.ts");
 
 
 
@@ -282,15 +255,15 @@ var ChatModule = /** @class */ (function () {
     ChatModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _chat_component__WEBPACK_IMPORTED_MODULE_2__["ChatComponent"]
+                _chat_component__WEBPACK_IMPORTED_MODULE_5__["ChatComponent"]
             ],
-            providers: [_services_chat_service__WEBPACK_IMPORTED_MODULE_3__["ChatService"]],
-            exports: [_chat_component__WEBPACK_IMPORTED_MODULE_2__["ChatComponent"]],
+            providers: [],
+            exports: [_chat_component__WEBPACK_IMPORTED_MODULE_5__["ChatComponent"]],
             imports: [
-                _material_material_module__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"],
-                _angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_7__["FlexModule"]
+                _material_material_module__WEBPACK_IMPORTED_MODULE_6__["MaterialModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["FlexModule"]
             ]
         })
     ], ChatModule);
@@ -364,10 +337,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmDialogModule", function() { return ConfirmDialogModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _prompt_dialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./prompt-dialog.component */ "./src/app/dialog/prompt-dialog.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _prompt_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./prompt-dialog.component */ "./src/app/dialog/prompt-dialog.component.ts");
 /* harmony import */ var _material_material_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../material/material.module */ "./src/app/material/material.module.ts");
 
 
@@ -381,14 +354,14 @@ var ConfirmDialogModule = /** @class */ (function () {
     }
     ConfirmDialogModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_2__["PromptDialogComponent"]],
-            entryComponents: [_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_2__["PromptDialogComponent"]],
+            declarations: [_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_5__["PromptDialogComponent"]],
+            entryComponents: [_prompt_dialog_component__WEBPACK_IMPORTED_MODULE_5__["PromptDialogComponent"]],
             imports: [
                 _material_material_module__WEBPACK_IMPORTED_MODULE_6__["MaterialModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["BrowserModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
             ]
         })
     ], ConfirmDialogModule);
@@ -453,38 +426,42 @@ var MaterialModule = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatService", function() { return ChatService; });
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants */ "./src/constants.ts");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants */ "./src/constants.ts");
+
+
 
 
 
 
 var ChatService = /** @class */ (function () {
     function ChatService() {
-        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].url;
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_1__(this.url);
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].url;
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__(this.url);
     }
     ChatService.prototype.sendMessage = function (data) {
-        this.socket.emit(_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].ADD_MESSAGE, data);
+        this.socket.emit(_constants__WEBPACK_IMPORTED_MODULE_5__["constants"].ADD_MESSAGE, data);
     };
     ChatService.prototype.userConnect = function (username) {
-        this.socket.emit(_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].USER_CONNECT, username);
+        this.socket.emit(_constants__WEBPACK_IMPORTED_MODULE_5__["constants"].USER_CONNECT, username);
     };
     ChatService.prototype.userDisconnect = function () {
         var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
-            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].DISCONNECT, function (data) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_5__["constants"].DISCONNECT, function (data) {
                 observer.next(data);
             });
         });
     };
     ChatService.prototype.getMessages = function () {
         var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
-            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].NEW_MESSAGE, function (data) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_5__["constants"].NEW_MESSAGE, function (data) {
                 observer.next(data);
             });
             return function () {
@@ -494,9 +471,8 @@ var ChatService = /** @class */ (function () {
     };
     ChatService.prototype.getUser = function () {
         var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
-            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].NEW_USER, function (data) {
-                console.log(data);
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            _this.socket.on(_constants__WEBPACK_IMPORTED_MODULE_5__["constants"].NEW_USER, function (data) {
                 observer.next(data);
             });
             return function () {
@@ -504,6 +480,9 @@ var ChatService = /** @class */ (function () {
             };
         });
     };
+    ChatService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])({ providedIn: 'root' })
+    ], ChatService);
     return ChatService;
 }());
 
@@ -522,7 +501,6 @@ var ChatService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "constants", function() { return constants; });
 var constants = {
-    CONNECT: 'connection',
     DISCONNECT: 'disconnect',
     USER_CONNECT: 'user-connect',
     ADD_MESSAGE: 'add-message',

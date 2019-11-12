@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ChatService } from '../services/chat.service';
-import { MatDialog } from '@angular/material';
-import { PromptDialogComponent } from '../dialog/prompt-dialog.component';
-import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { Subscription } from 'rxjs';
+
+import { ChatService } from '../services/chat.service';
+import { PromptDialogComponent } from '../dialog/prompt-dialog.component';
 
 interface SocketData {
   type: string;
@@ -13,7 +14,6 @@ interface SocketData {
 @Component({
   selector: 'app-chat-component',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss'],
 })
 
 export class ChatComponent implements OnInit, OnDestroy {
